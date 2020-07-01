@@ -26,7 +26,7 @@ SECRET_KEY = '0%+^o@)y2htib0v_#w&l&n!uji!-o*#5056y^vn&ef+jwt@1*-'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['stylistvem.herokuapp.com']
+ALLOWED_HOSTS = ['stylistvem.herokuapp.com','127.0.0.1']
 
 
 # Application definition
@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
 
     'stylistapp',
+    'bootstrap4',
 ]
 
 MIDDLEWARE = [
