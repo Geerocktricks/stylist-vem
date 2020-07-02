@@ -8,10 +8,12 @@
     {% block styles %}
         {% bootstrap_css %}
     {% endblock %}
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap" rel="stylesheet">
 </head>
 <body>
   <div class="container">
-      <div class="row">
+    {% include "navbar.html" %}
+      <div class="row" >
           <div class="col-md-8">
               {% block content %}
 
