@@ -1,0 +1,81 @@
+{% extends 'shop/base.html' %}
+{% load static %}
+{% block title %}
+    Your Shopping Cart| Checkout
+{% endblock %}
+
+{% block content %}
+    <div class="container" >
+        <div class="row holdingrow">
+            <div class="col-md-8">
+                <h4 class="page-header text-center">Checkout</h4>
+                <form action="" method="post" class="form">
+                    {% csrf_token %}
+                    <ul class="order">
+                        <li class="text-muted"><b>First Name:</b></li>
+                        <li id="first_name" class="contact">{{ form.first_name }}</li>
+                        <li class="text-muted"><b>Last Name:</b></li>
+                        <li id="last_name" class="contact">{{ form.last_name }}</li>
+                        <li class="text-muted"><b>Email:</b></li>
+                        <li id="email" class="contact">{{ form.email }}</li>
+                        <li class="text-muted"><b>Address:</b></li>
+                        <li id="address" class="contact">{{ form.address }}</li>
+                        <li class="text-muted"><b>Postal Code:</b></li>
+                        <li id="postal_code" class="contact">{{ form.postal_code }}</li>
+                        <li class="text-muted"><b>City:</b></li>
+                        <li id="city" class="contact">{{ form.city }}</li>
+                    </ul>
+                    <br>
+                    <input type="submit" class="btn" value="Proceed to payment" style="background-color: rgb(75, 109, 32);color: white;">
+                </form>
+            </div>
+            <div class="col-md-4">
+                <h4 class="page-header text-center yourorder" style="font-family: 'Playfair Display', serif;">
+                    Your Order
+                </h4>
+                <ul class="list-group reciept">
+                    {% for item in cart %}
+                        <li class="list-group-item">
+                        {{ item.quantity }}x {{ item.product.name }}
+                        <span>Kshs. {{ item.total_price }}</span>
+                        </li>
+                    {% endfor %}
+
+                <li class="list-group-item " style="background-color:rgb(255, 187, 0);color: white;">Total Cost: kshs. {{ cart.get_total_price }}</li>
+                </ul>
+
+            </div>
+        </div>
+    </div>
+    <style>
+         /* **************************************************************************************************************** */
+    /* **********************************MEDIA QUERIES ********************************************* */
+    /* ***************MOBILE PHONE PORTRAIT************************************************************************************************* */
+    @media (max-width: 575.98px) {
+        .holdingrow{
+            margin-top: 90px;
+        }
+        .page-header{
+            margin-bottom: 30px;
+            font-family: 'Playfair Display', serif;
+        }
+        .yourorder{
+            margin-top: 30px;
+        }
+        .order{
+            margin-left: -40px;
+        }
+        .order li{
+            list-style: none;
+        }
+        .reciept{
+            margin-bottom: 30px;
+        }
+        .form{
+            background-color: beige;
+            padding: 20px;
+            
+        }
+    }
+    </style>
+{% endblock %}

@@ -1,0 +1,28 @@
+<div class="container">
+    <div class="row text-center">
+    <span class="pagination" style="margin: auto;">
+        {% if page.has_previous %}
+            <a class="anchor text-muted" href="?page={{ page.previous_page_number }}" style="margin-right: 10px;">Prev</a>
+        {% endif %}
+
+      <span class="active" style="padding: 10px;border: 1px solid rgba(0, 0, 0, .3);">
+          page {{ page.number }} of {{ page.paginator.num_pages }}
+      </span>
+    {% if page.has_next %}
+        <a class="anchor text-muted" href="?page={{ page.next_page_number }}" style="margin-left: 10px; ">Next</a>
+    {% endif %}
+    </span>
+</div>
+<style>
+    .anchor{
+        border: 1px solid rgba(0, 0, 0, .3);
+        padding: 10px;
+    }
+    .anchor:hover{
+        background-color: beige;
+        color: rgb(151, 151, 151);
+        border: 1px solid white;
+        text-decoration: none;
+    }
+</style>
+</div>

@@ -1,0 +1,116 @@
+{% load bootstrap4 %}
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}On-line Shop{% endblock %}</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.0.0/animate.min.css">
+
+    {% block styles %}
+        {% bootstrap_css %}
+    {% endblock %}
+    <style>
+        .carousel-inner img {
+          width: 100%;
+          height: 100%;
+        }
+        .prod:hover{
+          box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.4);
+          transition: ease-in-out;
+        }
+        .thumbnail img:hover{
+            height: 260px;
+            width: 110%;
+        }
+      </style>
+</head>
+<body>
+{% include "navbarz.html" %}
+<div class="container">
+    <div class="row" style="margin-top: 6%">
+         <button class="btn btn-info pull-right">
+            {% with totail_items=cart|length %}
+                {% if cart|length > 0 %}
+                    My Shopping Order:
+                    <a href="{% url 'cart_detail' %}" style="color: #ffffff">
+                        {{ totail_items }} item {{ totail_items|pluralize }}, Kshs. {{ cart.get_total_price }}
+                    </a>
+                    {% else %}
+                    Your cart is empty.
+                {% endif %}
+            {% endwith %}
+         </button>
+    </div>
+</div>
+{% block content %}
+
+{% endblock %}
+{% block scripts %}
+            <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+            <script>
+                $(document).ready(function(){
+                    $('#grid').click(function(){
+                        $('.singleContent').hide();
+                        $('#gridContent').show();
+                    })
+                })
+
+                $(document).ready(function(){
+                    $('#single').click(function(){
+                        $('#gridContent').hide();
+                        $('.singleContent').show();
+                    })
+                })
+                        // Get the modal
+var modal = document.getElementById("myModal");
+
+// Get the image and insert it inside the modal - use its "alt" text as a caption
+var img = document.getElementById("myImg");
+var modalImg = document.getElementById("img01");
+var captionText = document.getElementById("caption");
+img.onclick = function(){
+  modal.style.display = "block";
+  modalImg.src = this.src;
+  captionText.innerHTML = this.alt;
+}
+
+// Get the <span> element that closes the modal
+var span = document.getElementsByClassName("close")[0];
+
+// When the user clicks on <span> (x), close the modal
+span.onclick = function() { 
+  modal.style.display = "none";
+}
+$(document).ready(function() {
+
+$(".instagram").dblclick(function() {
+
+    var heart = $(this).find("i");
+
+    heart.fadeIn("slow");
+
+    setTimeout(function() {
+        heart.fadeOut("slow");
+    }, 2000);
+    $('.liked').show();
+});
+
+$('.show').click(function(){
+    $('.liked').show();
+})
+
+});
+$(function(){
+    var test = localStorage.input === 'true'?true:false;
+    $('input').prop('checked',test || false);
+});
+$('input').on('change',function(){
+    localStorage.input = $(this).is(':checked');
+    console.log($(this).is(':checked'));
+})
+            </script>
+        {% bootstrap_javascript %}
+    {% endblock %}
+</body>
+</html>

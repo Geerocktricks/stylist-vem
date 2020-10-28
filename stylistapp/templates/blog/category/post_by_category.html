@@ -1,0 +1,30 @@
+{% extends "blog/base.html" %}
+
+{% block title %}sv |  stylist vem{% endblock %}
+
+{% block content %}
+<h3 class="text-center" style="margin-top: 30px;font-family: 'Playfair Display', serif;">{{ kategory.name }} category</h3>
+{% for posts in post %}
+<a href="{{ posts.get_absolute_url }}"><img src="{{ posts.article_image.url}}" alt="{{posts.title}}" style="width: 100%;" ></a><br>
+<p class=" text-muted" style="font-family: monospace;"><span class="small">{{ posts.publish }}</span> | {{ posts.author }}</p>
+<a href="{{ posts.get_absolute_url }}" class="text-muted"><h4 style="font-family: 'Playfair Display', serif;margin-bottom: 80px;">{{ posts.title }}</h4></a>
+{% endfor %}
+<div class="row">
+    <div class="col-md-6">
+        {% for i in insta %}
+    <img src="{{i.instaPic.url}}" alt="{{i.title}} image"  class="img-responsive" style="width: 220px; height: 250px;">            
+{% endfor %}
+    </div>
+    <div class="col-md-6" style="width: 50%;margin-left:170px; margin-top: -230px;">
+        {% for i in insta2 %}
+        <p class="text-center" style="background-color: #fff;font-family: 'Playfair Display', serif;margin-bottom: -2px;">{{i.title }}</p>
+    <img src="{{i.instaPic.url}}" alt="{{i.title}} image"  class="img-responsive" style="width: 160px; height: 180px;border: 7px solid #fff;">            
+{% endfor %}
+    </div>
+</div>
+<style>
+     li-first-child{
+        display: none;
+    }
+</style>
+{% endblock %}

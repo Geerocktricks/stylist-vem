@@ -1,0 +1,134 @@
+{% extends 'shop/baze.html' %}
+{% load static %}
+{% block title %}
+    {% if category %}{{ category.name }} {% else %} Products {% endif %}
+{% endblock %}
+
+{% block content %}
+<div class="container-fluid">
+  <div id="demo" class="carousel slide animate__animated animate__fadeInDown" data-ride="carousel" style="margin-top: 100px;">
+    <!-- <ul class="carousel-indicators">
+      <li data-target="#demo" data-slide-to="0" class="active"></li>
+      <li data-target="#demo" data-slide-to="1"></li>
+      <li data-target="#demo" data-slide-to="2"></li>
+    </ul> -->
+    <div class="carousel-inner">
+      <div class="carousel-item active" style="width: 100%; height: 200px;background-image: linear-gradient(rgb(14, 177, 226), rgb(143, 187, 177));">
+        <!-- <img src="https://images.unsplash.com/photo-1529720317453-c8da503f2051?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60" alt="Los Angeles" width="100%" height="500"> -->
+        <div class="carousel-caption">
+          <h3>Los Angeles</h3>
+          <p>We had such a great time in LA!</p>
+        </div>   
+      </div>
+      <div class="carousel-item" style="width: 100%; height: 200px;background-image: linear-gradient(rgb(58, 5, 40), rgb(185, 133, 98));">
+        <!-- <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60" alt="Chicago" width="100%" height="500"> -->
+        <div class="carousel-caption">
+          <h3>Chicago</h3>
+          <p>Thank you, Chicago!</p>
+        </div>   
+      </div>
+      <div class="carousel-item" style="width: 100%; height: 200px;background-image: linear-gradient(rgb(221, 27, 20), rgb(185, 137, 98));">
+        <!-- <img src="https://images.unsplash.com/flagged/photo-1593005510329-8a4035a7238f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60" alt="New York" width="100%" height="500"> -->
+        <div class="carousel-caption">
+          <h3>New York</h3>
+          <p>We love the Big Apple!</p>
+        </div>   
+      </div>
+    </div>
+    <!-- <a class="carousel-control-prev" href="#demo" data-slide="prev">
+      <span class="carousel-control-prev-icon"></span>
+    </a>
+    <a class="carousel-control-next" href="#demo" data-slide="next">
+      <span class="carousel-control-next-icon"></span>
+    </a> -->
+  </div>
+</div>
+   <div class="container" >
+      <div class="row" style="margin-top: 10%">
+
+        <div class="col-sm-3 col-sm-offset-1 blog-sidebar " >
+          <div class="sidebar-module jumbotron animate__animated animate__fadeInRight" style="background-color: #ffff;">
+            <h4 style="font-family: 'Playfair Display', serif;" class="text-center Categories">Categories</h4>
+            <div class="row categoryholder">
+              <div class="col-3 text-center">
+                <ol class="list-unstyled categorylist">
+                  <div style="background-color: dodgerblue; height: 50px;width: 50px;border-radius: 50%;"></div>
+                  <li {% if not category %} class="active"{% endif %} style="border-bottom: 1px solid rgba(0,0,0,.1);"><a href="{% url 'product_list' %}" class="text-muted text-center">All</a></li>
+                  
+                </div>
+                {% for c in categories %}
+                  <div class="col-3">
+                    {% for c in categorypics %}
+                    <a href="{{ c.get_absolute_url }}"><img src="{{ c.image.url }}" alt=" {{ c.name }} category image" style=" height: 50px;width: 50px;border-radius: 50%;"></a>
+                    {% endfor %}
+                  <li {% if category.slug == c.slug %} class="active"{% endif %} style="border-bottom: 1px solid rgba(0,0,0,.1);">
+                      <a href="{{ c.get_absolute_url }}"class="text-muted small" style="width: 100%;">{{ c.name }}</a>
+                  </li>
+                  </div>
+                {% endfor %}
+                </ol>
+                
+                  
+              </div>
+            </div>
+          </div>
+
+          
+        </div><!-- /.blog-sidebar -->
+   </div>
+        <div class="container-fluid categoryname" style="background-color: chocolate;">
+          <h3 class="text-center " style="font-family: 'Playfair Display', serif;color: white;line-height: 60px;">{{ category.name }} Category</h3>
+        </div>
+        <div class="container">
+        <div class="col-sm-9 blog-main">
+
+          <div class="blog-post">
+            
+              <div class="row" >
+                  {% for product in products %}
+                  <div class="col-6">
+                    <a href="{{ product.get_absolute_url }}">
+                        <img src="{% if product.image %} {{ product.image.url }} {% else %} {% static 'img/default.jpg' %} {% endif %}" alt="..." style="height: 200px; width: 175px;">
+                     </a>
+                     <p style="font-family: 'Playfair Display', serif; font-size: 20px;">{{ product.name }}</p>
+                     <p class="text-muted" style="font-family: 'Playfair Display', serif;">Ksh {{ product.price }}</p>
+                </div>
+                  {% endfor %}
+              </div>
+
+
+          </div><!-- /.blog-post -->
+
+        </div><!-- /.blog-main -->
+
+      </div><!-- /.row --> 
+
+    </div><!-- /.container -->
+
+    <style>
+         /* **************************************************************************************************************** */
+    /* **********************************MEDIA QUERIES ********************************************* */
+    /* ***************MOBILE PHONE PORTRAIT************************************************************************************************* */
+    @media (max-width: 575.98px) {
+      li{
+        list-style: none;
+        text-decoration: none;
+      }
+      .Categories{
+        margin-bottom: 30px;
+      }
+      .categoryholder{
+        margin-bottom: 30px;
+        /* background-color: aliceblue; */
+        padding-top: 10px;
+      }
+      body{
+        background-color: rgb(248, 248, 248);
+      }
+      .categoryname{
+        height: 60px;
+      }
+    }
+    </style>
+{% endblock %}
+

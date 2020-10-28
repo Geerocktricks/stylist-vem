@@ -1,0 +1,562 @@
+{% extends 'shop/instabase.html' %}
+{% load static %}
+{% block title %}
+    Street drip with stylistvem
+{% endblock %}
+
+{% block content %}
+<div class="container insta">
+    <!-- BIO AREA -->
+    <div class="row">
+        <div class="col-md-2">
+            <img src="https://images.unsplash.com/photo-1445205170230-053b83016050?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60" alt="here" class="dpImage img-responsive">
+        </div>
+        <div class="col-md-6" style="float: left;">
+            <h3 style="font-family: 'Playfair Display', serif;">Stylist Vem</h3>
+            <p style="color: #b6b6b6;font-weight: 500;">My name is stylist vem. I am a fashion stylist based in Nairobi Kenya. </p>
+            <p class="" style="color: teal;font-family: monospace;">#MenAndWomanFashion #lifestyle #streetFashion #FashionConsultant</p>
+            <p class="" style="color: teal;font-family: monospace;">#StyleInfluencer #BrandMarketer #FashionBloger #FashionDesigner</p>
+            <p class="" style="color: teal;font-family: monospace;">#BrandInfluencer #DigitalInfluencer</p>
+        </div>
+        <div class="col-md-4">
+            <div class="row" style="margin-top: 60px;">
+                <div class="col-md-6">
+                    <button class="btn btn-success msg">Message</button>
+                </div>
+                <div class="col-md-6">
+                    <div class="row col-md-12">
+                        <div class="col-md-6 bagcontain">
+                            <a href="{% url 'cart_detail' %}"><i class="fa fa-shopping-bag text-muted bag" aria-hidden="true"></i></a>
+                        </div>
+                        <div class="col-md-6 crtcontain">
+                            {% with totail_items=cart|length %}
+                            {% if cart|length > 0 %}
+                                <span class="cartdetail text-center">
+                                    <a href="{% url 'cart_detail' %}" style="color: #ffffff;font-size: 10px;">
+                                        {{ totail_items }} {{ totail_items|pluralize }}
+                                    </a>
+                                </span>
+                            {% endif %}
+                        {% endwith %}
+                        </div>
+                    </div>
+                        
+                </div>
+                
+            </div>
+        </div>
+    </div>
+</div>
+    <!-- END BIO AREA  -->
+
+    <div class="container-fluid ">
+        <br><hr>
+
+    <!-- TOGGLE AREA  -->
+    <div class="row">
+        <div class="col-md-6 grid">
+            <p id="grid"  class="text-muted"><i class="fa fa-table"></i></p>
+        </div>
+        <div class="col-md-6 single">
+            <p id="single" class="text-muted"><i class="fa fa-square-o" aria-hidden="true"></i></p>
+        </div>
+    </div>
+    <!-- END TOGGLE AREA -->
+
+    <!-- Grid view -->
+    <!-- <form action="">
+        <input type="checkbox">
+        <input type="checkbox">
+        <input type="checkbox">
+    </form> -->
+    <div class="row" id="gridContent"  style="width: 84%;">
+        {% for i in insta %}
+        
+            <div class="image snapcontainer">
+                    <img src="{{i.instaPic.url}}" alt="{{i.title}} image" id="myImg"  class="img-responsive myImg">
+                    <!-- <p class="col-sm-3">{{i.title}}</p> -->
+               
+                <br><br>
+            </div>
+            
+            
+        {% endfor %}
+         <!-- The Modal -->
+         
+    </div>
+    <div id="myModal" class="modal">
+        <span class="close">&times;</span>
+        <img class="modal-content" id="img01">
+        <div id="caption">{{ i.description }}</div>
+    </div>
+    <!-- END GRID VIEW  -->
+
+    <!-- single view -->
+    <div class="singleContent" style="display: none;">
+        {% for i in insta %}
+            <div class=" col-md-6 gridimage singlejoin">
+                <div class="col-md-12 card top" >
+                    <h3 class="small " style="line-height: 50px;">{{ i.title }}</h3>
+                </div>
+                <div class="instagram">
+                    <i class="fa fa-heart"></i>
+                    <img src="{{i.instaPic.url}}" alt="{{i.title}} image" class="singlejoin singleimg" >
+                </div>
+                <div class="col-md-12 card singlejoin bottom" style="min-height: 50px;background-color: rgb(250, 250, 250);border-radius: 0%;border: 1px solid rgba(0,0,0,0.1);">
+                    <div class="row" style="">
+                        <ul class="instacons" style="display: inline;list-style: none; margin-top: 10px;">
+                            <li class="liked" style="margin-top: 5px;"><i class="fa fa-heart liked"></i></li>
+                            <li><i class="fa fa-heart-o text-muted show" aria-hidden="true"></i></li>
+                            <label for="comment"><li><i class="fa fa-comment-o text-muted" aria-hidden="true"></i></li></i</label>
+                            <li><i class="fa fa-pinterest-p text-muted" aria-hidden="true"></i></li>
+                            
+                        </ul>
+                    </div>
+                    <p> <b>stylistvem</b> {{ i.description }}</p>
+                    <p class="small text-muted">Posted on {{ i.created_at |date:"d-m-Y"}}</p>
+                </div>
+                <div class="col-md-12 singlejoin comment" style="background-color: #f1f1f1;margin-bottom: 40px;height: 30px;">
+                    <input type="text" placeholder="Add a comment..." class="col-md-12" id="comment" style="border: none; background-color: transparent;cursor: pointer;margin-left: -15px;">
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+    </div>
+    <!-- END SINGLE VIEW  -->
+
+
+<style>
+    .image{
+        transition: 0.3s;
+        margin-right: 10px;
+        margin-bottom: -20px;
+    }
+    .image:hover{
+        opacity: .4;
+    }
+    
+    /* The Modal (background) */
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 999; /* Sit on top */
+  padding-top: 100px; /* Location of the box */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.9); /* Black w/ opacity */
+}
+
+/* Modal Content (image) */
+.modal-content {
+  margin: auto;
+  display: block;
+  width: 100%;
+  /* max-width: 700px; */
+}
+
+/* Caption of Modal Image */
+#caption {
+  margin: auto;
+  display: block;
+  width: 10px;
+  max-width: 700px;
+  text-align: center;
+  color: #ccc;
+  padding: 10px 0;
+  height: 10px;
+}
+
+/* Add Animation */
+.modal-content, #caption {  
+  -webkit-animation-name: zoom;
+  -webkit-animation-duration: 0.6s;
+  animation-name: zoom;
+  animation-duration: 0.6s;
+}
+
+@-webkit-keyframes zoom {
+  from {-webkit-transform:scale(0)} 
+  to {-webkit-transform:scale(1)}
+}
+
+@keyframes zoom {
+  from {transform:scale(0)} 
+  to {transform:scale(1)}
+}
+
+/* The Close Button */
+.close {
+  position: absolute;
+  top: 15px;
+  right: 35px;
+  color: #f1f1f1;
+  font-size: 40px;
+  font-weight: bold;
+  transition: 0.3s;
+}
+
+.close:hover,
+.close:focus {
+  color: #bbb;
+  text-decoration: none;
+  cursor: pointer;
+}
+.instacons li{
+    display: inline;
+    margin-right: 20px;
+    font-size: 20px;
+}
+.instacons i{
+    margin-left: -25px;
+    padding-right: 20px;
+    font-weight: thin;
+}
+.instagram i {
+            position: absolute;
+            left: 50%;
+            top: 40%;
+            transform: translate(-50%, -50%);
+            color: red;
+            z-index: 1;
+            font-size: 60px;
+            display: none;
+        }
+.hiden{
+    display: none;
+}
+::placeholder {
+  font-size: small;
+  margin-left: -30px;
+}
+.liked{
+    position: absolute;
+    display: none;
+    color: red;
+    padding-right: 20px;
+}
+#myImg{
+    width: 100%;
+    height: 250px;
+}
+#grid{
+    float: right;
+}
+.dpImage{
+    height:150px;
+    width:150px;
+    border-radius: 50%;
+}
+.top{
+    width: 108%;
+    height: 50px;
+    background-color: rgb(250, 250, 250);
+    border-radius: 0%;
+    border: 1px solid rgba(0,0,0,0.1);
+}
+.singlejoin{
+    width: 108%;
+}
+.singleimg{
+    width:108%; 
+    height: 450px;
+}
+
+
+/* **************************************************************************************************************** */
+    /* **********************************MEDIA QUERIES ********************************************* */
+    /* ***************MOBILE PHONE PORTRAIT************************************************************************************************* */
+    @media (max-width: 575.98px) {
+        .imgrow{
+        transition: 0.3s;
+        margin-right: -30px;
+        margin-bottom: -20px;
+        float: left: !important,
+        clear: both !important;
+        padding: 0 !important;
+        width: 100% !important;
+
+    }
+    #myImg{
+        height: 123px;
+        width: 100px;
+        margin-right: -6px;
+    }
+    #gridContent{
+        position: absolute;
+        /* background-color: brown; */
+        margin-left: 5%;
+    }
+    #grid{
+        float: none;
+        margin: auto;
+        margin-left: 20%;
+    }
+    #single{
+        margin-top: -25px;
+        float: right;
+        overflow: hidden;
+        margin-right: 20%;
+    }
+    .dpImage{
+        margin-bottom: 30px;
+    }
+    .msg{
+        float: left;
+        width: 170px;
+    }
+    .crt{
+        /* width: 170px; */
+    }
+    .insta{
+        margin-top: 130px;
+    }
+    .bag{
+        font-size: 40px;
+        float: right;
+        margin-top: -40px;
+        opacity: .4;
+    }
+    .cartdetail{
+        height: 20px;
+        width: 20px;
+        border: 1px solid rgba(0,0,0,0.1);
+        background-color: rgba(216, 73, 29, 0.9);
+        border-radius: 50%;
+        top:-20px;
+        float: right;
+        line-height: 15px;
+        margin-top: -49px;
+        margin-right: -10px;
+    }
+    .gridimage{
+        left: -27px;
+    }
+    
+}
+/* **************************************************************************************************************** */
+    /* **********************************MEDIA QUERIES ********************************************* */
+    /* ***************SMALL MOBILE PHONE PORTRAIT************************************************************************************************* */
+    @media (max-width: 360.98px) {
+        
+        .snapcontainer{
+            width: 70px;
+            height: 100px;
+            /* margin-right:22px; */
+            margin-bottom: 30px;
+        }
+        #myImg{
+            height: 123px;
+            width: 75px;
+            /* margin-right: -6px; */
+            /* display: none; */
+        }
+        #gridContent{
+           margin-left: 11%;
+        }
+        .gridimage{
+        left: -24px;
+    }
+        }
+/* *************************************************************************************************************** */
+/* *************************************************************************************************************** */
+/* ************MOBILE LANDSCAPE********************************************************************************** */
+@media (min-width: 575.98px) {
+    .insta{
+        margin-top: 130px;
+    }
+    .bag{
+        font-size: 40px;
+        float: right;
+        margin-top: -40px;
+        opacity: .4;
+    }
+    .cartdetail{
+        height: 20px;
+        width: 20px;
+        border: 1px solid rgba(0,0,0,0.1);
+        background-color: rgba(216, 73, 29, 0.9);
+        border-radius: 50%;
+        top:-20px;
+        float: right;
+        line-height: 15px;
+        margin-top: -49px;
+        margin-right: -10px;
+    }
+    #grid{
+        float: none;
+        margin: auto;
+        margin-left: 20%;
+    }
+    #single{
+        margin-top: -25px;
+        float: right;
+        overflow: hidden;
+        margin-right: 20%;
+    }
+    #myImg{
+        height: 190px;
+        width: 180px;
+        margin-right: -6px;
+    }
+    #gridContent{
+        position: absolute;
+        /* background-color: brown; */
+        margin-left: 5%;
+    }
+    .snapcontainer{
+        margin: auto;
+    }
+    
+    .singleimg{
+    width:50%; 
+    /* height: 450px; */
+}
+.top, .bottom , .comment{
+    width: 50%;
+}
+.gridimage{
+   /* display: none; */
+}
+
+}
+/* *********************************************************************************************************** */
+/* *********************************************************************************************************** */
+/* ****************************SMAllEST DEVICE LANDSCAPE ***************************************************** */
+@media (min-width: 560.98px) {
+    .singleimg{
+    width:70%; 
+    height: 450px;
+}
+.top, .bottom, .comment{
+    width: 70%;
+}
+.gridimage{
+    margin-left: 17%;
+}
+}
+
+/* *************************************************************************************************************** */
+/* *************************************************************************************************************** */
+/* ************TABLETS********************************************************************************** */
+@media (min-width: 767.98px) {
+ .dpImage{
+     height: 100px;
+     width: 100px;
+ }
+ .bag{
+        font-size: 40px;
+        float: right;
+        margin-top: -2px;
+        opacity: .4;
+        right:-30px;
+        
+    }
+    .cartdetail{
+        height: 20px;
+        width: 20px;
+        border: 1px solid rgba(0,0,0,0.1);
+        background-color: rgba(216, 73, 29, 0.9);
+        border-radius: 50%;
+        top:-20px;
+        float: right;
+        line-height: 15px;
+        margin-top: -49px;
+        margin-right: -10px;
+    }
+    .msg{
+
+    }
+    .bagcontain{
+        margin-left: 30px;
+    }
+    .crtcontain{
+        left: 30px;
+    }
+    #grid{
+        float: right;
+        margin: auto;
+        /* margin-left: 20%; */
+    }
+    #single{
+        margin-top: 0px;
+        float: left;
+        overflow: hidden;
+        /* margin-right: 20%; */
+    }
+    #myImg{
+        height: 200px;
+        width: 200px;
+    }
+    .gridimage{
+        margin: auto;
+    }
+    .singleimg{
+    width:100%; 
+    height: 450px;
+}
+.top, .bottom, .comment{
+    width: 100%;
+}
+.gridimage{
+    margin-left: 25%;
+}
+}
+
+/* *************************************************************************************************************** */
+/* *************************************************************************************************************** */
+/* ************DESKTOP********************************************************************************** */
+@media (min-width: 790.98px) {
+    #myImg{
+            height: 400px;
+            width: 270px;
+            /* margin-right: -6px; */
+            /* display: none; */
+        }
+        .modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 999; /* Sit on top */
+  padding-top: 100px; /* Location of the box */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.9); /* Black w/ opacity */
+}
+.modal-content {
+  margin: auto;
+  display: block;
+  width: 40%;
+  /* max-width: 700px; */
+  height: 80%;
+}
+.singleimg{
+    width:80%; 
+    height: 450px;
+}
+.top, .bottom, .comment{
+    width: 80%;
+}
+.gridimage{
+    margin-left: 30%;
+}
+.instagram i {
+            position: absolute;
+            left: 40%;
+            top: 40%;
+            transform: translate(-50%, -50%);
+            color: red;
+            z-index: 1;
+            font-size: 60px;
+            display: none;
+        }
+}
+</style>
+
+{%  endblock %}

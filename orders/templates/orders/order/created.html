@@ -1,0 +1,39 @@
+{% extends 'shop/base.html' %}
+{% load static %}
+{% block title %}
+    Your Shopping Cart| Thank you
+{% endblock %}
+
+{% block content %}
+    <div class="container">
+        <div class="row" style="margin-top: 90px;">
+            <div class="col-md-8 col-md-offset-2">
+                <h3 class="page-header" style="font-family: 'Playfair Display', serif;">Thank You For Shopping With Us
+                </h3>
+                <p style="font-family: monospace; letter-spacing: 1px; margin: auto;">Your order has been successfully completed.</p>
+                <i class="fa fa-check text-center check animate__animated " style="font-size: 100px;border: 3px solid rgb(75, 109, 32);border-radius:50%; padding:20px;color: rgb(75, 109, 32);"></i>
+            </div>
+            <button class="backbtn btn" style="background-color: rgb(255, 187, 0); color:white;">Continue Shopping</button>
+            <button class="backbtn btn" style="background-color: rgb(75, 109, 32); color: white;">Stylist Vem</button>
+        </div>
+    </div>
+
+    <style>
+          /* **************************************************************************************************************** */
+    /* **********************************MEDIA QUERIES ********************************************* */
+    /* ***************MOBILE PHONE PORTRAIT************************************************************************************************* */
+    @media (max-width: 575.98px) {
+        .check{
+            transform: translate(65% , 50%);
+        }
+        .page-header{
+            font-size: 23px;
+            margin-bottom: 30px;
+        }
+        .backbtn{
+            margin-top: 150px;
+            margin-left: 10%;
+        }
+    }
+    </style>
+{% endblock %}

@@ -1,0 +1,792 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+  /* &&&&&&&&&&&&&&&&&&&&&&&Small nav start &&&&&&&&&&&&&&&&&&&&&&&& */
+body {
+  font-family: "Lato", sans-serif;
+}
+
+.sidenav {
+  height: 100%;
+  width: 0;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  background-color: rgb(255, 255, 255);
+  overflow-x: hidden;
+  transition: 0.5s;
+  padding-top: 60px;
+  text-align:center;
+}
+
+.sidenav a {
+  padding: 8px 8px 8px 32px;
+  text-decoration: none;
+  font-size: 25px;
+  color: #818181;
+  display: block;
+  transition: 0.3s;
+
+}
+
+.sidenav a:hover{
+  color: #f1f1f1;
+}
+
+.sidenav .closebtn {
+  position: absolute;
+  top: 0;
+  right: 25px;
+  font-size: 36px;
+  margin-left: 50px;
+}
+.openlogo{
+  list-style: none;
+  display: inline-block;
+}
+.navlink{
+      /* text-decoration: none; */
+      list-style: none;
+      margin-left: -40px;
+  }
+  .navlink li{
+      display: inline-block;
+  }
+  .navlinkz{
+      list-style: none;
+      margin-left: -40px;
+      float: left;
+  }
+  .navlinkz li{
+      display: inline-block;
+  }
+  .logo{
+    font-size: 35px;
+  }
+  .socialIcons{
+    padding: 20px;
+  }
+  
+  .socialIcons li{
+    display: inline-block;
+  }
+  .socialIcons a{
+    /* margin-left: 15px; */
+    padding: 9px;
+    color: #c0bebe;
+    font-size: small;
+  }
+  .socialIcons a:hover{
+    color: teal;
+  }
+/* &&&&&&&&&&&&&&&&&&&&&&&Small nav end &&&&&&&&&&&&&&&&&&&&&&&& */
+
+
+/* &&&&&&&&&&&&&&&&&&&&&&&big nav start &&&&&&&&&&&&&&&&&&&&&&&& */
+
+.navbar {
+  overflow: hidden;
+  
+}
+.navbar a {
+  float: left;
+  font-size: 16px;
+  text-align: center;
+  /* padding: 14px 16px; */
+  text-decoration: none;
+  line-height: 20px;
+  top: -40px;
+}
+.dropdown {
+  /* float: left; */
+  overflow: hidden;
+}
+
+.dropdown .dropbtn {
+  font-size: 16px;  
+  border: none;
+  outline: none;
+  /* color: white; */
+  padding: 14px 16px;
+  background-color: inherit;
+  font: inherit;
+  margin: 0;
+}
+.navbar a:hover, .dropdown:hover .dropbtn {
+  border-bottom: 4px solid black;
+}
+.dropdown-content {
+  display: none;
+  position: fixed;
+  background-color: #ffffff;
+  width: 100%;
+  left: 0;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+  height: 60%;
+}
+.dropdown-content .header {
+  padding: 16px;
+  color: white;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+  transition-delay: 3s;
+}
+.column {
+  float: left;
+  width: 33.33%;
+  padding: 10px;
+  height: 250px;
+}
+
+.column a {
+  float: none;
+  color: black;
+  padding: 16px;
+  text-decoration: none;
+  display: block;
+  text-align: left;
+}
+.logo{
+  font-size: 35px;
+}
+
+.column a:hover {
+  background-color: rgb(221, 221, 221);
+}
+/* &&&&&&&&&&&&&&&&&&&&&&&big nav end &&&&&&&&&&&&&&&&&&&&&&&& */
+
+/* **************************************************************************************************************** */
+  /* **********************************MEDIA QUERIES ********************************************* */
+  /* ***************MOBILE PHONE PORTRAIT************************************************************************************************* */
+  @media (max-width: 575.98px) {
+      /* .largescreen{
+        display: none;
+      } */
+      
+      
+    }
+  
+/* *************************************************************************************************************** */
+  /* *************************************************************************************************************** */
+  /* ************Will figure********************************************************************************** */
+  @media (max-width: 767.98px) {
+    .largescreen{
+      display: none;
+    }
+    
+  }
+
+
+  /* *************************************************************************************************************** */
+  /* *************************************************************************************************************** */
+  /* ************TABLETS********************************************************************************** */
+  @media (min-width: 767.98px) {
+    .smallscreen{
+      display: none;
+    }
+    .socialIcons{
+    padding: 20px;
+    margin-left: -60px;
+  }
+  
+  .socialIcons li{
+    display: inline-block;
+  }
+  .socialIcons a{
+    /* margin-left: 15px; */
+    padding: 9px;
+    color: #c0bebe;
+    font-size: small;
+  }
+  .socialIcons a:hover{
+    color: teal;
+  }
+  .navbar i{
+    /* line-height: 20px; */
+    margin-top: -20px;
+  }
+  .largescreen{
+    margin-left: -55px;
+    width: 100%;
+  }
+  .logo{
+    font-size: 20px;
+    margin-right: 10px;
+  }
+  
+  }
+  
+  /* *************************************************************************************************************** */
+  /* *************************************************************************************************************** */
+  /* ************MOBILE LANDSCAPE********************************************************************************** */
+  @media (min-width: 575.98px) {
+    .smallscreen{
+      height: 100px;
+      left: 17px;
+    }
+    .smallSearchInput{
+      transform: translate(105%,0%);
+    }
+}
+  /* *************************************************************************************************************** */
+  /* *************************************************************************************************************** */
+  /* ************DESKTOP********************************************************************************** */
+  @media(min-width: 992.98px){
+    .smallscreen{
+      display: none;
+    }
+    .largescreen{
+      margin-left: -120px;
+    }
+  }
+</style>
+
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.0.0/animate.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body>
+
+<div class="smallscreen" style="position: fixed;z-index: 1;top: -10px;background-color: #ffff;;width: 120%;z-index: 999;margin-left: -17px;box-shadow: 0px 1px 6px 0px rgba(0,0,0,0.2);">
+  <div id="mySidenav" class="sidenav">
+    <div class="container-fluid" style="margin-top: -60px; ">
+      <div class="row">
+          <div class="col-md-6" style="z-index: 9999;">
+              <ul class="navlinkz" style="height: 100px;line-height: 100px;">
+                  <li><span style="font-size:15px;cursor:pointer;z-index: 999;" onclick="closeNav()"><b>&#9776;</b></span></li>
+                  <li style="margin-left: 20px;font-size: 35px;font-family: 'Playfair Display', serif;"><span class="text-muted">sv</span></li>
+                  <!-- <li style="margin-left: 10px;font-family: 'Playfair Display', serif;">Vem-Stylist</li> -->
+              </ul>
+          </div>
+          <div class="col-md-6" style="margin-top: -80px;z-index: 9999;">
+              <a href="javascript:void(0)" class="closebtn" onclick="closeNav()" style="font-size: 15px;">&times; close</a>
+          </div>
+      </div>
+  </div>
+  <ul class="socialIcons text-center">
+      
+    <li class="email"><a href="mailto:geerockface4@gmail.com"><i class="fa fa-envelope-o small"></i></a></li>
+  
+    <li class="email"><a href="https://www.instagram.com/gerald_waweru/" target="_blank"><i class="fa fa-instagram"></i></a></li>
+  
+    <li class="twitter"><a href="https://twitter.com/GeraldWaweru3" target="_blank"><i class="fa fa-youtube"></i></a></li>
+  
+  
+    <li class="website"><a href="https://www.facebook.com/kristeline.gerald/" target="_blank"><i class="fa fa-facebook"></i></a></li>
+  
+</ul>
+<!-- Adding a search form  -->
+<div class="col-sm-4 col-md-4 navbar-right smallSearchInput">
+
+  <form class="navbar-form " role="search" action="" style="width: 200px;margin:auto;">
+
+    <div>
+      <div class="input-group">
+        <input type="text" class="form-control text-center" placeholder="Search Article" name="article" style="border: none; border-bottom: 1px solid rgba(0,0,0, .4);">
+        <div class="input-group-btn">
+          <button type="submit" class="btn"><i class="fa fa-search"></i></button>
+        </div>
+      </div>
+    </div>
+  </form>
+  <br>
+</div>
+<!-- search form end -->
+
+  </div>
+  <ul class="navlink phone" style="height: 100px;line-height: 100px; margin-left: -25px;margin-top: 10px;">
+    <li class="animate__animated animate__backInLeft"><span style="font-size:15px;cursor:pointer;z-index: 999;margin-left: 25px;" onclick="openNav()"><b>&#9776;</b></span></li>
+    <li style="margin-left: 20px;font-family: 'Playfair Display', serif;" class="animate__animated animate__backInLeft logo"><a href="\"><span class="text-muted">sv</span> <span style="font-weight: 900;color: black;">stylist vem</span></a></li>
+    <!-- <li style="margin-left: 10px;font-family: 'Playfair Display', serif;">Vem-Stylist</li> -->
+</ul>
+<input type="text" placeholder="Search products" class="searchProduct" style="margin-left: 40px;width:70%;height: 40px; border-radius: 50px;margin-bottom: 5px;">
+</div>
+
+
+
+  <div class="navbar largescreen container-fluid" style="position: fixed;z-index: 1;top: 0px;background-color: #ffff;box-shadow: 0px 1px 6px 0px rgba(0,0,0,0.2);width: 100%;z-index: 2;">
+    <div class="container">
+    <li style="font-family: 'Playfair Display', serif;list-style: none;margin-left: -15px;" class="animate__animated animate__backInLeft logo"><span class="text-muted">sv</span> <span style="font-weight: 900;">stylist vem</span></li>
+    <div class="dropdown">
+      <button class="dropbtn  text-muted">Fashion 
+      </button>
+      <div class="dropdown-content animate__animated animate__fadeInUp">
+        <div class="container">
+             
+          <div class="row col-md-12">
+            <div class="column col-md-3 animate__animated animate__fadeInLeft">
+              <div class="row col-md-8 " style="margin-bottom: 5px;">
+                <div class="col-md-4" >
+                  <img src="https://images.unsplash.com/photo-1445205170230-053b83016050?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60" alt="here" style="height:85px;width:65px;">
+                </div>
+                <div class="col-md-4">
+                  <img src="https://images.unsplash.com/photo-1512436991641-6745cdb1723f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60" alt="here" style="height:85px;width:65px;">
+                </div>
+                <div class="col-md-4">
+                  <img src="https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60" alt="here" style="height:85px;width:65px;">
+                </div>
+              </div>
+              <div class="row col-md-8" style="margin-bottom: 5px;">
+                <div class="col-md-4">
+                  <img src="https://images.unsplash.com/photo-1539109136881-3be0616acf4b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60" alt="here" style="height:85px;width:65px;">
+                </div>
+                <div class="col-md-4">
+                  <img src="https://images.unsplash.com/photo-1505734169265-a86113baa6c5?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60" alt="here" style="height:85px;width:65px;">
+                </div>
+                <div class="col-md-4">
+                  <img src="https://images.unsplash.com/photo-1479064555552-3ef4979f8908?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60" alt="here" style="height:85px;width:65px;">
+                </div>
+              </div>
+              <div class="row col-md-8" style="margin-bottom: 5px;">
+                <div class="col-md-4">
+                  <img src="https://images.unsplash.com/photo-1495385794356-15371f348c31?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60" alt="here" style="height:85px;width:65px;box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);">
+                </div>
+                <div class="col-md-4">
+                  <img src="https://images.unsplash.com/photo-1506152983158-b4a74a01c721?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60" alt="here" style="height:85px;width:65px;box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);">
+                </div>
+                <div class="col-md-4">
+                  <img src="https://images.unsplash.com/photo-1509631179647-0177331693ae?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60" alt="here" style="height:85px;width:65px;box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);">
+                </div>
+              </div>
+              <p class="small animate__animated animate__fadeInRight" style="margin-left: 20px;">10 Most loved styles right now!!!</p>
+            </div>
+            <div class="column col-md-3">
+              <div class="row col-md-8" style="margin-bottom: 5px;">
+                <div class="col-md-4" >
+                  <img src="https://images.unsplash.com/photo-1445205170230-053b83016050?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60" alt="here" style="height:85px;width:65px;">
+                </div>
+                <div class="col-md-4">
+                  <img src="https://images.unsplash.com/photo-1512436991641-6745cdb1723f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60" alt="here" style="height:85px;width:65px;">
+                </div>
+                <div class="col-md-4">
+                  <img src="https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60" alt="here" style="height:85px;width:65px;">
+                </div>
+              </div>
+              <div class="row col-md-8" style="margin-bottom: 5px;">
+                <div class="col-md-4">
+                  <img src="https://images.unsplash.com/photo-1539109136881-3be0616acf4b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60" alt="here" style="height:85px;width:65px;">
+                </div>
+                <div class="col-md-4">
+                  <img src="https://images.unsplash.com/photo-1505734169265-a86113baa6c5?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60" alt="here" style="height:85px;width:65px;">
+                </div>
+                <div class="col-md-4">
+                  <img src="https://images.unsplash.com/photo-1479064555552-3ef4979f8908?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60" alt="here" style="height:85px;width:65px;">
+                </div>
+              </div>
+              <div class="row col-md-8" style="margin-bottom: 5px;">
+                <div class="col-md-4">
+                  <img src="https://images.unsplash.com/photo-1495385794356-15371f348c31?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60" alt="here" style="height:85px;width:65px;box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);">
+                </div>
+                <div class="col-md-4">
+                  <img src="https://images.unsplash.com/photo-1506152983158-b4a74a01c721?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60" alt="here" style="height:85px;width:65px;box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);">
+                </div>
+                <div class="col-md-4">
+                  <img src="https://images.unsplash.com/photo-1509631179647-0177331693ae?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60" alt="here" style="height:85px;width:65px;box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);">
+                </div>
+              </div>
+              <p class="small" style="margin-left: 20px;">10 Most loved styles right now!!!</p>
+            </div>
+            
+            <div class="column col-md-3 animate__animated animate__fadeInDown">
+              <img src="https://images.unsplash.com/photo-1509631179647-0177331693ae?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60" alt="" style="height: 265px;width: 210px;box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);">
+              <p class="small animate__animated animate__fadeInUp" style="">During this cold season, its advisable to dress up warm since we are ....</p>
+            </div>
+            <div class="column col-md-3">
+              <h3 class="" style="font-size: 20px;font-family: 'Playfair Display', serif;">Most Recent Fashion posts</h3>
+              <a href="#">Post one heading here</a>
+              <a href="#">Post 2 heading here</a>
+              <a href="#">Post 3 Heading here</a>
+              <button class="btn btn-success animate__animated animate__hinge" style="background-color: rgb(75, 109, 32);">View more on Fashion</button>
+              <ul class="socialIcons text-center animate__animated animate__rollIn">
+        
+                <li class="email"><a href="mailto:geerockface4@gmail.com"><i class="fa fa-envelope-o small"></i></a></li>
+              
+                <li class="email"><a href="https://www.instagram.com/gerald_waweru/" target="_blank"><i class="fa fa-instagram"></i></a></li>
+              
+                <li class="twitter"><a href="https://twitter.com/GeraldWaweru3" target="_blank"><i class="fa fa-youtube"></i></a></li>
+              
+              
+                <li class="website"><a href="https://www.facebook.com/kristeline.gerald/" target="_blank"><i class="fa fa-facebook"></i></a></li>
+              
+            </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div> 
+    <div class="dropdown">
+      <button class="dropbtn text-muted">Travel 
+      </button>
+      <div class="dropdown-content animate__animated animate__fadeInUp">
+        <div class="container">
+             
+          <div class="row col-md-12">
+            <div class="column col-md-3 animate__animated animate__fadeInLeft">
+              <img src="https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60" alt="" style="height: 265px;width: 210px;box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);">
+              <p class="small animate__animated animate__fadeInDown" style="">During this cold season, its advisable to dress up warm since we are ....</p>
+            </div>
+            <div class="column col-md-3 animate__animated animate__fadeInUp">
+              <img src="https://images.unsplash.com/photo-1509631179647-0177331693ae?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60" alt="" style="height: 265px;width: 210px;box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);">
+              <p class="small animate__animated animate__fadeInDown" style="">During this cold season, its advisable to dress up warm since we are ....</p>
+            </div>
+            <div class="column col-md-3 animate__animated animate__fadeInDown">
+              <img src="https://images.unsplash.com/photo-1509631179647-0177331693ae?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60" alt="" style="height: 265px;width: 210px;box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);">
+              <p class="small animate__animated animate__fadeInUp" style="">During this cold season, its advisable to dress up warm since we are ....</p>
+            </div>
+            <div class="column col-md-3">
+              <h3 class="" style="font-size: 20px;font-family: 'Playfair Display', serif;">Most Recent Travel posts</h3>
+              <a href="#">Post one heading here</a>
+              <a href="#">Post 2 heading here</a>
+              <a href="#">Post 3 Heading here</a>
+              <button class="btn btn-success animate__animated animate__slideInRight" style="background-color: rgb(75, 109, 32);">View more on Travel</button>
+              <ul class="socialIcons text-center animate__animated animate__rollIn">
+        
+                <li class="email"><a href="mailto:geerockface4@gmail.com"><i class="fa fa-envelope-o small"></i></a></li>
+              
+                <li class="email"><a href="https://www.instagram.com/gerald_waweru/" target="_blank"><i class="fa fa-instagram"></i></a></li>
+              
+                <li class="twitter"><a href="https://twitter.com/GeraldWaweru3" target="_blank"><i class="fa fa-youtube"></i></a></li>
+              
+              
+                <li class="website"><a href="https://www.facebook.com/kristeline.gerald/" target="_blank"><i class="fa fa-facebook"></i></a></li>
+              
+            </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div> 
+    <div class="dropdown">
+      <button class="dropbtn text-muted">Lifestyle 
+      </button>
+      <div class="dropdown-content animate__animated animate__fadeInUp">
+        <div class="container">
+             
+          <div class="row col-md-12">
+            <div class="column col-md-3 animate__animated animate__fadeInLeft">
+              <img src="https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60" alt="" style="height: 265px;width: 210px;box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);">
+              <p class="small animate__animated animate__fadeInRight" style="">During this cold season, its advisable to dress up warm since we are ....</p>
+            </div>
+            <div class="column col-md-3 animate__animated animate__fadeInRight">
+              <img src="https://images.unsplash.com/photo-1505734169265-a86113baa6c5?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60" alt="" style="height: 265px;width: 210px;box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);">
+              <p class="small animate__animated animate__fadeInLeft" style="">During this cold season, its advisable to dress up warm since we are ....</p>
+            </div>
+            <div class="column col-md-3">
+              <div class="row col-md-8" style="margin-bottom: 5px;">
+                <div class="col-md-4" >
+                  <img src="https://images.unsplash.com/photo-1445205170230-053b83016050?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60" alt="here" style="height:85px;width:65px;">
+                </div>
+                <div class="col-md-4">
+                  <img src="https://images.unsplash.com/photo-1512436991641-6745cdb1723f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60" alt="here" style="height:85px;width:65px;">
+                </div>
+                <div class="col-md-4">
+                  <img src="https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60" alt="here" style="height:85px;width:65px;">
+                </div>
+              </div>
+              <div class="row col-md-8" style="margin-bottom: 5px;">
+                <div class="col-md-4">
+                  <img src="https://images.unsplash.com/photo-1539109136881-3be0616acf4b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60" alt="here" style="height:85px;width:65px;">
+                </div>
+                <div class="col-md-4">
+                  <img src="https://images.unsplash.com/photo-1505734169265-a86113baa6c5?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60" alt="here" style="height:85px;width:65px;">
+                </div>
+                <div class="col-md-4">
+                  <img src="https://images.unsplash.com/photo-1479064555552-3ef4979f8908?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60" alt="here" style="height:85px;width:65px;">
+                </div>
+              </div>
+              <div class="row col-md-8" style="margin-bottom: 5px;">
+                <div class="col-md-4">
+                  <img src="https://images.unsplash.com/photo-1495385794356-15371f348c31?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60" alt="here" style="height:85px;width:65px;box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);">
+                </div>
+                <div class="col-md-4">
+                  <img src="https://images.unsplash.com/photo-1506152983158-b4a74a01c721?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60" alt="here" style="height:85px;width:65px;box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);">
+                </div>
+                <div class="col-md-4">
+                  <img src="https://images.unsplash.com/photo-1509631179647-0177331693ae?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60" alt="here" style="height:85px;width:65px;box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);">
+                </div>
+              </div>
+              <p class="small animate__animated animate__fadeInDown" style="margin-left: 20px;">10 Most loved styles right now!!!</p>
+            </div>
+            <div class="column col-md-3">
+              <h3 class="" style="font-size: 20px;font-family: 'Playfair Display', serif;">Most Recent Lifestyle posts</h3>
+              <a href="#">Post one heading here</a>
+              <a href="#">Post 2 heading here</a>
+              <a href="#">Post 3 Heading here</a>
+              <button class="btn btn-success animate__animated animate__slideInRight" style="background-color: rgb(75, 109, 32);">View more on Lifestyle</button>
+              <ul class="socialIcons text-center animate__animated animate__rollIn">
+        
+                <li class="email"><a href="mailto:geerockface4@gmail.com"><i class="fa fa-envelope-o small"></i></a></li>
+              
+                <li class="email"><a href="https://www.instagram.com/gerald_waweru/" target="_blank"><i class="fa fa-instagram"></i></a></li>
+              
+                <li class="twitter"><a href="https://twitter.com/GeraldWaweru3" target="_blank"><i class="fa fa-youtube"></i></a></li>
+              
+              
+                <li class="website"><a href="https://www.facebook.com/kristeline.gerald/" target="_blank"><i class="fa fa-facebook"></i></a></li>
+              
+            </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div> 
+    <div class="dropdown">
+      <button class="dropbtn text-muted">Style Guides 
+      </button>
+      <div class="dropdown-content animate__animated animate__fadeInUp">
+        <div class="container animate__animated animate__fadeInDown">
+             
+          <div class="row col-md-12">
+            <div class="column col-md-3">
+              <div class="row col-md-8" style="margin-bottom: 5px;">
+                <div class="col-md-4" >
+                  <img src="https://images.unsplash.com/photo-1445205170230-053b83016050?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60" alt="here" style="height:85px;width:65px;">
+                </div>
+                <div class="col-md-4">
+                  <img src="https://images.unsplash.com/photo-1512436991641-6745cdb1723f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60" alt="here" style="height:85px;width:65px;">
+                </div>
+                <div class="col-md-4">
+                  <img src="https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60" alt="here" style="height:85px;width:65px;">
+                </div>
+              </div>
+              <div class="row col-md-8" style="margin-bottom: 5px;">
+                <div class="col-md-4">
+                  <img src="https://images.unsplash.com/photo-1539109136881-3be0616acf4b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60" alt="here" style="height:85px;width:65px;">
+                </div>
+                <div class="col-md-4">
+                  <img src="https://images.unsplash.com/photo-1505734169265-a86113baa6c5?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60" alt="here" style="height:85px;width:65px;">
+                </div>
+                <div class="col-md-4">
+                  <img src="https://images.unsplash.com/photo-1479064555552-3ef4979f8908?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60" alt="here" style="height:85px;width:65px;">
+                </div>
+              </div>
+              <div class="row col-md-8" style="margin-bottom: 5px;">
+                <div class="col-md-4">
+                  <img src="https://images.unsplash.com/photo-1495385794356-15371f348c31?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60" alt="here" style="height:85px;width:65px;box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);">
+                </div>
+                <div class="col-md-4">
+                  <img src="https://images.unsplash.com/photo-1506152983158-b4a74a01c721?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60" alt="here" style="height:85px;width:65px;box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);">
+                </div>
+                <div class="col-md-4">
+                  <img src="https://images.unsplash.com/photo-1509631179647-0177331693ae?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60" alt="here" style="height:85px;width:65px;box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);">
+                </div>
+              </div>
+              <p class="small animate__animated animate__fadeInLeft" style="margin-left: 20px;">10 Most loved styles right now!!!</p>
+            </div>
+            <div class="column col-md-3">
+              <div class="row col-md-8" style="margin-bottom: 5px;">
+                <div class="col-md-4" >
+                  <img src="https://images.unsplash.com/photo-1445205170230-053b83016050?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60" alt="here" style="height:85px;width:65px;">
+                </div>
+                <div class="col-md-4">
+                  <img src="https://images.unsplash.com/photo-1512436991641-6745cdb1723f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60" alt="here" style="height:85px;width:65px;">
+                </div>
+                <div class="col-md-4">
+                  <img src="https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60" alt="here" style="height:85px;width:65px;">
+                </div>
+              </div>
+              <div class="row col-md-8" style="margin-bottom: 5px;">
+                <div class="col-md-4">
+                  <img src="https://images.unsplash.com/photo-1539109136881-3be0616acf4b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60" alt="here" style="height:85px;width:65px;">
+                </div>
+                <div class="col-md-4">
+                  <img src="https://images.unsplash.com/photo-1505734169265-a86113baa6c5?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60" alt="here" style="height:85px;width:65px;">
+                </div>
+                <div class="col-md-4">
+                  <img src="https://images.unsplash.com/photo-1479064555552-3ef4979f8908?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60" alt="here" style="height:85px;width:65px;">
+                </div>
+              </div>
+              <div class="row col-md-8" style="margin-bottom: 5px;">
+                <div class="col-md-4">
+                  <img src="https://images.unsplash.com/photo-1495385794356-15371f348c31?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60" alt="here" style="height:85px;width:65px;box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);">
+                </div>
+                <div class="col-md-4">
+                  <img src="https://images.unsplash.com/photo-1506152983158-b4a74a01c721?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60" alt="here" style="height:85px;width:65px;box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);">
+                </div>
+                <div class="col-md-4">
+                  <img src="https://images.unsplash.com/photo-1509631179647-0177331693ae?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60" alt="here" style="height:85px;width:65px;box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);">
+                </div>
+              </div>
+              <p class="small animate__animated animate__fadeInUp" style="margin-left: 20px;">10 Most loved styles right now!!!</p>
+            </div>
+            
+            <div class="column col-md-3">
+              <div class="row col-md-8" style="margin-bottom: 5px;">
+                <div class="col-md-4" >
+                  <img src="https://images.unsplash.com/photo-1445205170230-053b83016050?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60" alt="here" style="height:85px;width:65px;">
+                </div>
+                <div class="col-md-4">
+                  <img src="https://images.unsplash.com/photo-1512436991641-6745cdb1723f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60" alt="here" style="height:85px;width:65px;">
+                </div>
+                <div class="col-md-4">
+                  <img src="https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60" alt="here" style="height:85px;width:65px;">
+                </div>
+              </div>
+              <div class="row col-md-8" style="margin-bottom: 5px;">
+                <div class="col-md-4">
+                  <img src="https://images.unsplash.com/photo-1539109136881-3be0616acf4b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60" alt="here" style="height:85px;width:65px;">
+                </div>
+                <div class="col-md-4">
+                  <img src="https://images.unsplash.com/photo-1505734169265-a86113baa6c5?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60" alt="here" style="height:85px;width:65px;">
+                </div>
+                <div class="col-md-4">
+                  <img src="https://images.unsplash.com/photo-1479064555552-3ef4979f8908?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60" alt="here" style="height:85px;width:65px;">
+                </div>
+              </div>
+              <div class="row col-md-8" style="margin-bottom: 5px;">
+                <div class="col-md-4">
+                  <img src="https://images.unsplash.com/photo-1495385794356-15371f348c31?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60" alt="here" style="height:85px;width:65px;box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);">
+                </div>
+                <div class="col-md-4">
+                  <img src="https://images.unsplash.com/photo-1506152983158-b4a74a01c721?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60" alt="here" style="height:85px;width:65px;box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);">
+                </div>
+                <div class="col-md-4">
+                  <img src="https://images.unsplash.com/photo-1509631179647-0177331693ae?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60" alt="here" style="height:85px;width:65px;box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);">
+                </div>
+              </div>
+              <p class="small animate__animated animate__fadeInRight" style="margin-left: 20px;">10 Most loved styles right now!!!</p>
+            </div>
+            <div class="column col-md-3">
+              <h3 class="" style="font-size: 20px;font-family: 'Playfair Display', serif;">Most Recent Style Guides posts</h3>
+              <a href="#">Post one heading here</a>
+              <a href="#">Post 2 heading here</a>
+              <a href="#">Post 3 Heading here</a>
+              <button class="btn btn-success animate__animated animate__slideInRight" style="background-color: rgb(75, 109, 32);">View more on Style Guides</button>
+              <ul class="socialIcons text-center animate__animated animate__rollIn">
+        
+                <li class="email"><a href="mailto:geerockface4@gmail.com"><i class="fa fa-envelope-o small"></i></a></li>
+              
+                <li class="email"><a href="https://www.instagram.com/gerald_waweru/" target="_blank"><i class="fa fa-instagram"></i></a></li>
+              
+                <li class="twitter"><a href="https://twitter.com/GeraldWaweru3" target="_blank"><i class="fa fa-youtube"></i></a></li>
+              
+              
+                <li class="website"><a href="https://www.facebook.com/kristeline.gerald/" target="_blank"><i class="fa fa-facebook"></i></a></li>
+              
+            </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div> 
+    <div class="dropdown">
+      <button class="dropbtn text-muted">Insta Recap 
+      </button>
+      <div class="dropdown-content animate__animated animate__fadeInUp">
+        <div class="container">
+             
+          <div class="row col-md-12">
+            <div class="column col-md-3">
+              <img src="https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60" alt="" style="height: 265px;width: 210px;box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2)" class="animate__animated animate__fadeInDown">
+              <p class="small" style="">During this cold season, its advisable to dress up warm since we are ....</p>
+            </div>
+            <div class="column col-md-3">
+              <div class="row col-md-8" style="margin-bottom: 5px;">
+                <div class="col-md-4" >
+                  <img src="https://images.unsplash.com/photo-1445205170230-053b83016050?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60" alt="here" style="height:85px;width:65px;" class="animate__animated animate__fadeInDown">
+                </div>
+                <div class="col-md-4">
+                  <img src="https://images.unsplash.com/photo-1512436991641-6745cdb1723f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60" alt="here" style="height:85px;width:65px;" class="animate__animated animate__fadeInDown">
+                </div>
+                <div class="col-md-4">
+                  <img src="https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60" alt="here" style="height:85px;width:65px;" class="animate__animated animate__fadeInDown">
+                </div>
+              </div>
+              <div class="row col-md-8" style="margin-bottom: 5px;">
+                <div class="col-md-4">
+                  <img src="https://images.unsplash.com/photo-1539109136881-3be0616acf4b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60" alt="here" style="height:85px;width:65px;" class="animate__animated animate__fadeInLeft">
+                </div>
+                <div class="col-md-4">
+                  <img src="https://images.unsplash.com/photo-1505734169265-a86113baa6c5?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60" alt="here" style="height:85px;width:65px;" class="animate__animated animate__fadeInDown">
+                </div>
+                <div class="col-md-4">
+                  <img src="https://images.unsplash.com/photo-1479064555552-3ef4979f8908?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60" alt="here" style="height:85px;width:65px;" class="animate__animated animate__fadeInRight">
+                </div>
+              </div>
+              <div class="row col-md-8" style="margin-bottom: 5px;">
+                <div class="col-md-4">
+                  <img src="https://images.unsplash.com/photo-1495385794356-15371f348c31?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60" alt="here" style="height:85px;width:65px;box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);" class="animate__animated animate__fadeInDown">
+                </div>
+                <div class="col-md-4">
+                  <img src="https://images.unsplash.com/photo-1506152983158-b4a74a01c721?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60" alt="here" style="height:85px;width:65px;box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);" class="animate__animated animate__fadeInDown">
+                </div>
+                <div class="col-md-4">
+                  <img src="https://images.unsplash.com/photo-1509631179647-0177331693ae?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60" alt="here" style="height:85px;width:65px;box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);" class="animate__animated animate__fadeInDown">
+                </div>
+              </div>
+              <p class="small" style="margin-left: 20px;">10 Most loved styles right now!!!</p>
+            </div>
+            <div class="column col-md-3">
+              <div class="row col-md-8" style="margin-bottom: 5px;">
+                <div class="col-md-4" >
+                  <img src="https://images.unsplash.com/photo-1445205170230-053b83016050?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60" alt="here" style="height:85px;width:65px;" class="animate__animated animate__fadeInLeft">
+                </div>
+                <div class="col-md-4">
+                  <img src="https://images.unsplash.com/photo-1512436991641-6745cdb1723f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60" alt="here" style="height:85px;width:65px;" class="animate__animated animate__fadeInLeft">
+                </div>
+                <div class="col-md-4">
+                  <img src="https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60" alt="here" style="height:85px;width:65px;" class="animate__animated animate__fadeInLeft">
+                </div>
+              </div>
+              <div class="row col-md-8" style="margin-bottom: 5px;">
+                <div class="col-md-4">
+                  <img src="https://images.unsplash.com/photo-1539109136881-3be0616acf4b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60" alt="here" style="height:85px;width:65px;">
+                </div>
+                <div class="col-md-4">
+                  <img src="https://images.unsplash.com/photo-1505734169265-a86113baa6c5?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60" alt="here" style="height:85px;width:65px;">
+                </div>
+                <div class="col-md-4">
+                  <img src="https://images.unsplash.com/photo-1479064555552-3ef4979f8908?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60" alt="here" style="height:85px;width:65px;">
+                </div>
+              </div>
+              <div class="row col-md-8" style="margin-bottom: 5px;">
+                <div class="col-md-4">
+                  <img src="https://images.unsplash.com/photo-1495385794356-15371f348c31?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60" alt="here" style="height:85px;width:65px;box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);" class="animate__animated animate__fadeInRight">
+                </div>
+                <div class="col-md-4">
+                  <img src="https://images.unsplash.com/photo-1506152983158-b4a74a01c721?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60" alt="here" style="height:85px;width:65px;box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);" class="animate__animated animate__fadeInRight">
+                </div>
+                <div class="col-md-4">
+                  <img src="https://images.unsplash.com/photo-1509631179647-0177331693ae?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60" alt="here" style="height:85px;width:65px;box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);" class="animate__animated animate__fadeInRight">
+                </div>
+              </div>
+              <p class="small" style="margin-left: 20px;">10 Most loved styles right now!!!</p>
+            </div>
+            <div class="column col-md-3">
+              <img src="https://images.unsplash.com/photo-1509631179647-0177331693ae?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60" alt="" style="height: 265px;width: 210px;box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);" class="animate__animated animate__fadeInDown">
+              <p class="small" style="">During this cold season, its advisable to dress up warm since we are ....</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div> 
+    <div class="dropdown">
+      <button class="dropbtn text-muted">Shop
+      </button>
+      <div class="dropdown-content animate__animated animate__fadeInUp">
+        
+      </div>
+    </div> 
+  
+  </div>
+</div>
+
+<script>
+function openNav() {
+  document.getElementById("mySidenav").style.width = "100%";
+}
+
+function closeNav() {
+  document.getElementById("mySidenav").style.width = "0";
+}
+</script>
+   
+</body>
+</html> 

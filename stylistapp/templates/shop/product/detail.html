@@ -1,0 +1,120 @@
+{% extends 'shop/baze.html' %}
+{% load static %}
+{% block title %}
+    {% if category %}{{ category.name }} {% else %} Products {% endif %}
+{% endblock %}
+
+{% block content %}
+   <div class="container">
+      <div class="row" style="margin-top: 10%">
+
+        <div class="col-sm-8 blog-main">
+
+          <div class="blog-post">
+              <div class="row">
+                <div class="">
+                    <div class="card-body row jumbotron" style="background-color: #ffff; ">
+                        <div class="col-md-6 text-right">
+                            <img src="{% if product.image %} {{ product.image.url }} {% else %} {% static 'img/default.jpg' %} {% endif %}" alt="..." style="height: 300px; width: 100%">
+                            <hr>
+                        </div>
+                        <div class="col-md-6" style="padding-left: 20px">
+                            <h3 class="text-muted" style="font-family: 'Playfair Display', serif">{{ product.name }}</h3><br><hr>
+                            <h6 style="text-transform: uppercase;" class="small">category: <a href="{{ product.category.get_absolute_url }}">{{ product.category }}</a></h6><hr>
+                            <p class="" style="font-size: x-large;font-family: 'Playfair Display', serif; color: rgb(255, 187, 0);"><b>Kshs. {{ product.price }}</b></p>
+                            <form action="{% url 'cart_add' product.id %}" method="post">
+                                {% csrf_token %}
+                                {{ cart_product_form }}
+                                <br><br>
+                                <input type="submit" value="add to cart" class="btn btn-primary col-md-12" style="background-color: rgb(75, 109, 32);border:none;margin-top: 10px;">
+                                <hr>
+                            </form>
+                            
+                        </div>
+                    </div>
+                </div>
+              </div>
+              
+
+          </div><!-- /.blog-post -->
+
+        </div><!-- /.blog-main -->
+        <div class="col-md-3 " >
+            <div class="col-md-12 jumbotron" style="background-color: #ffff; ">
+                <h3 class="text-center How text-muted" style="font-family: 'Playfair Display', serif">How to make an order</h3><br>
+                <div class="row">
+                    <div class="col-md-3 icons">
+                        <i class="fa fa-shopping-cart text-muted" aria-hidden="true" style="font-size: 20px; border: 1px solid rgba(0,0,0,0.1);padding: 10px;margin-bottom: 20px;"></i>
+                        <i class="fa fa-credit-card text-muted" aria-hidden="true" style="font-size: 20px; border: 1px solid rgba(0,0,0,0.1);padding: 10px;margin-bottom: 20px;"></i>
+                        <i class="fa fa-motorcycle text-muted" aria-hidden="true" style="font-size: 20px; border: 1px solid rgba(0,0,0,0.1);padding: 10px;"></i>
+                    </div>
+
+                    <div class="col-md-8 icondescription">
+                        <p class="" style="margin-bottom: 20px;">Add Items you like to cart</p>
+                        <hr>
+                        <p class="" style="margin-bottom: 20px;">Purchase the Item</p>
+                        <hr>
+                        <p class="">Have Items shipped to your location</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+      </div><!-- /.row -->
+      <div class="row col-md-12">
+          <div class="text-center col-sm-8">
+            <h3 class="text-center text-muted" style="font-family: 'Playfair Display', serif">Product Description</h3>
+          </div>
+        <div class="prodDetails jumbotron col-sm-8" style="background-color: #ffff;;">
+            <p style="font-family: 'Playfair Display', serif;color: #5c5b5b;font-weight: lighter;">{{ product.description|safe|linebreaksbr }}</p>
+          </div>
+      </div>
+      <div class=" row col-md-12">
+        <div class="text-center col-sm-8">
+            <h3 class="text-center text-muted" style="font-family: 'Playfair Display', serif">Similar Products</h3>
+          </div>
+      </div>
+        <div class="row">
+            {% for product in similar %}
+            <div class="col-sm-4 similar">
+                <a href="{{ product.get_absolute_url }}">
+                    <img src="{% if product.image %} {{ product.image.url }} {% else %} {% static 'img/default.jpg' %} {% endif %}" alt="..." style="height: 200px; width: 175px;">
+                 </a>
+                 <p style="font-family: 'Playfair Display', serif; font-size: 20px;">{{ product.name }}</p>
+                 <p class="text-muted" style="font-family: 'Playfair Display', serif;">Ksh {{ product.price }}</p>
+            </div>
+            {% endfor %}
+        </div>
+
+    </div><!-- /.container -->
+
+    <style>
+            /* **************************************************************************************************************** */
+    /* **********************************MEDIA QUERIES ********************************************* */
+    /* ***************MOBILE PHONE PORTRAIT************************************************************************************************* */
+    @media (max-width: 575.98px) {
+        .card-5body{
+            box-shadow: none;
+        }
+        .How{
+            margin-bottom: 30px;
+            margin-top: -60px;
+        }
+        .icons{
+            display: grid;
+            width: 50px;
+        }
+        .icondescription{
+            margin-left: 70px;
+            margin-top: -150px;
+        }
+        .icondescription p{
+            font-family: monospace;
+        }
+        .similar{
+            margin-bottom: 30px;
+            margin-top: 30px;
+            width: 206px;
+        }
+    }
+    </style>
+{% endblock %}

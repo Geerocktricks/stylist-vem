@@ -9,25 +9,61 @@
         {% bootstrap_css %}
     {% endblock %}
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.0.0/animate.min.css">
 </head>
 <body>
-  <div class="container">
+  <!-- <div class="preloader"></div> -->
+  <div id="fb-root"></div>
+    <script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_GB/sdk.js#xfbml=1&version=v7.0" nonce="PD0nCjx3"></script>
+  <div class="navHolder" style="height: 90px;">
     {% include "navbar.html" %}
-      <div class="row" >
-          <div class="col-md-8">
-              {% block content %}
-
-              {% endblock %}
-              {% block scripts %}
-                <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-                {% bootstrap_javascript %}
-              {% endblock %}
-          </div>
-          <div class="col-md-4">
-              <h3>Stylistvem</h3>
-              <p>This is our sidebar</p>
-          </div>
+    <div class="container">
+      <div class="row" style="margin-top: 6%">
+           <button class="btn btn-info pull-right">
+              {% with totail_items=cart|length %}
+                  {% if cart|length > 0 %}
+                      My Shopping Order:
+                      <a href="{% url 'cart_detail' %}" style="color: #ffffff">
+                          {{ totail_items }} item {{ totail_items|pluralize }}, Kshs. {{ cart.get_total_price }}
+                      </a>
+                      {% else %}
+                      Your cart is empty.
+                  {% endif %}
+              {% endwith %}
+           </button>
       </div>
   </div>
+    <div class="container" style="margin-bottom: 30px;">
+      
+    </div>
+  </div>
+  <div class="container" style="">
+    {% block content %}
+
+    {% endblock %}
+        {% block scripts %}
+            <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+            <script>
+              $(window).load(function() {
+   $('.preloader').fadeOut('slow');
+});
+            </script>
+        {% bootstrap_javascript %}
+    {% endblock %}
+  </div>
 </body>
+<style>
+  .preloader {
+   position: absolute;
+   top: 0;
+   left: 0;
+   width: 100%;
+   height: 100%;
+   z-index: 9999;
+   background-image: url('../images/default.gif');
+   background-repeat: no-repeat; 
+   background-color: #FFF;
+   background-position: center;
+}
+</style>
 </html>
