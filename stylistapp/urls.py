@@ -17,6 +17,7 @@ urlpatterns=[
     path(r'^kategory/(?P<kategory_slug>[-\w]+)/$', views.post_list_by_kategory, name='post_list_by_kategory'),
     path(r'^(?P<id>\d+)/(?P<slug>[-\w]+)/$', views.product_detail, name='product_detail'),
     path(r'streetdripwithstylistvem/', views.insta_recap, name = 'insta_recap'),
+    
 ]
 if settings.DEBUG:
     urlpatterns+= static(settings.MEDIA_URL, document_root = settings.MEDIA_ROOT)

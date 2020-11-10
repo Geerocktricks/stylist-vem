@@ -26,12 +26,13 @@ SECRET_KEY = '0%+^o@)y2htib0v_#w&l&n!uji!-o*#5056y^vn&ef+jwt@1*-'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['stylistvem.herokuapp.com','127.0.0.1']
+ALLOWED_HOSTS = ['5f1f901ee519.ngrok.io', 'stylistvem.herokuapp.com','127.0.0.1', 'localhost']
 
 
 # Application definition
 
 INSTALLED_APPS = [
+    'mpesa_api.apps.MpesaApiConfig',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',

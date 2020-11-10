@@ -25,10 +25,12 @@ sitemaps = {
 }
 
 urlpatterns = [
+    path('api/v1/', include('mpesa_api.urls')),
     path('admin/', admin.site.urls),
     path('cart', include('cart.urls')),
     path('orders/', include('orders.urls')),
     path('', include('stylistapp.urls')),
     path('^tinymce/', include('tinymce.urls')),
     path('sitemap.xml',sitemap, {'sitemaps':sitemaps}, name='django.contrib.sitemaps.views.sitemap'),
+    
 ]
